@@ -1,15 +1,30 @@
 import React from "react";
 import { useState } from "react";
 
-export default function TimerInput(props) {
-    const [timeSec, setTimeSec] = useState(0);
-    const onInputChange = (e) => setTimeSec(Number(e.target.value) * e.target.name);
+export default function GuessGame(props) {
+    const { cheatProbability } = props;
+    const [guess, setGuess] = useState(0);
+    const targetNumber = Math.floor(Math.random() * 1000) + 1;
+    const [target] = useState(targetNumber);
+    const [cheat] = useState(Math.random);
+
+    const onInputChange = (e) => setGuess(Number(e.target.value));
+
+    function message() {
+        const cheat = Math.random() < cheatProbability;
+        return guess === target ? "bingo!" :
+            (guess > target && !cheat) || (guess < target && cheat) ? "too high" : "too low";
+    }
 
     return (
       <div>
-          { [1, 60, 3600].map( x => <div><input value={Math.floor((timeSec * 1000 / x))/1000} name={x} onChange={onInputChange} /></div>) }
+          { <label><input type="Number" value={guess} onChange={onInputChange} />{message()}</label> }
       </div>
     );
+}
+
+GuessGame.defaultProps = {
+    cheatProbability: 0.2
 }
 
 

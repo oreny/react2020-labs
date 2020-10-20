@@ -1,30 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import tinycolor from "tinycolor2";
 
-export default function GuessGame(props) {
-    const { cheatProbability } = props;
-    const [guess, setGuess] = useState(0);
-    const targetNumber = Math.floor(Math.random() * 1000) + 1;
-    const [target] = useState(targetNumber);
-    const [cheat] = useState(Math.random);
+export default function Monochromater(props) {
+    const { color } = props;
 
-    const onInputChange = (e) => setGuess(Number(e.target.value));
-
-    function message() {
-        const cheat = Math.random() < cheatProbability;
-        return guess === target ? "bingo!" :
-            (guess > target && !cheat) || (guess < target && cheat) ? "too high" : "too low";
+    function renderTableCell() {
+        const lightColors = [40, 30, 20, 10].map(x => <td style={{backgroundColor: tinycolor(color).lighten(x).toString()}}/>);
+        const darkColors = [0, 10, 20, 30, 40].map(x => <td style={{backgroundColor: tinycolor(color).darken(x).toString()}}/>);
+        return [...lightColors, ...darkColors];
     }
 
     return (
       <div>
-          { <label><input type="Number" value={guess} onChange={onInputChange} />{message()}</label> }
+          <table style={{width: "30%", height: "100px"}}>
+              <tr>{renderTableCell()}</tr>
+          </table>
       </div>
     );
 }
 
-GuessGame.defaultProps = {
-    cheatProbability: 0.2
+Monochromater.defaultProps = {
+    color: "#FF0000"
 }
 
 
