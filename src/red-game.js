@@ -45,7 +45,7 @@ export default function RedGame() {
     const buttonStyle = {
         fontSize: "18px",
         fontColor: "green",
-        borderCRadius: "8px"
+        borderRadius: "8px"
     };
 
     return (
