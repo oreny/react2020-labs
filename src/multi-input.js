@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function MultiInput(props) {
-    const { count } = props;
+export default function MultiInput({ count }) {
     const [text, setText] = useState("");
     const onInputChange = (e) => { setText(e.target.value)};
 

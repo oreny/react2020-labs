@@ -1,25 +1,22 @@
 import React from "react";
 import { useState } from "react";
 
-export default function GuessGame(props) {
-    const { cheatProbability } = props;
-    const [guess, setGuess] = useState(0);
-    const targetNumber = Math.floor(Math.random() * 1000) + 1;
-    const [target] = useState(targetNumber);
-    const [cheat] = useState(Math.random);
+export default function GuessGame({ cheatProbability }) {
+    const [message, setMessage] = useState("Guess a number");
+    const newTarget = () => Math.floor(Math.random() * 1000) + 1;
+    const [target, setTarget] = useState(newTarget());
 
-    const onInputChange = (e) => setGuess(Number(e.target.value));
-
-    function message() {
+    const onInputChange = (e) => {
+        const guess = Number(e.target.value);
         const cheat = Math.random() < cheatProbability;
-        return guess === target ? "bingo!" :
+        const msg = guess === target ? "bingo!" :
             (guess > target && !cheat) || (guess < target && cheat) ? "too high" : "too low";
+        setMessage(msg);    
+        setTarget(guess === target ? newTarget() : target);
     }
 
     return (
-      <div>
-          { <label><input type="Number" value={guess} onChange={onInputChange} />{message()}</label> }
-      </div>
+      <label><input type="Number" onChange={onInputChange} />{message}</label>
     );
 }
 
