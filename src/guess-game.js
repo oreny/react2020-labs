@@ -11,7 +11,7 @@ export default function GuessGame({ cheatProbability }) {
         const cheat = Math.random() < cheatProbability;
         const msg = guess === target ? "bingo!" :
             (guess > target && !cheat) || (guess < target && cheat) ? "too high" : "too low";
-        setMessage(msg);    
+        setMessage(msg);
         setTarget(guess === target ? newTarget() : target);
     }
 
