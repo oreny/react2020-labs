@@ -20,8 +20,6 @@ table.reference:nth-of-type(2) tr:nth-child(2)
     background-color:blue;
 }
 
-
-
 .sort-button {
     font-size: 12px;
     transform: rotate(90deg);

@@ -33,7 +33,7 @@ export default function SortedTable({tableData}) {
     function buttonTitle(column) {
         return column !== sortColumn || !ascending ? "a..z" : "z..a";
     }
-    //debugger;
+
     return (
         <table>
             <tbody>
@@ -44,5 +44,6 @@ export default function SortedTable({tableData}) {
             </tr>
             {tableContent.map(row => <tr key={row[0]}>{row.slice(1).map(cell => <td>{cell}</td>)}</tr>)}
             </tbody>
-        </table>);
+        </table>
+    );
 }
