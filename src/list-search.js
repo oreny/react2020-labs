@@ -1,37 +1,29 @@
-import React from "react";
-import  { useState } from "react";
+import React, { useState } from "react";
+import "./style.css";
 
-
-function SearchBox(props) {
-    const { setSearchString } = props;
-
+function SearchBox({ setSearchString }) {
     return (
         <div style={{marginBottom: "10px"}}>
-            <label style={{fontSize: "24px"}}>
-                Search:
-                <input style= {{fontSize: "24px", marginLeft: "5px", width: "70%"}} onChange={(e) => setSearchString(e.target.value)}/>
+            <label style={{fontSize: "24px"}}>Search:
+                <input className="search-box" onChange={(e) => setSearchString(e.target.value)}/>
             </label>
         </div>
     )
 }
 
- function List(props) {
-    const { listItems, searchString } = props;
-
-    const searchStr = searchString.toLowerCase();
-    const items = searchString.length === 0 ? listItems : listItems.map(s => s.toLowerCase()).filter(x => x.indexOf(searchStr) >= 0)
+ function List({ listItems, searchString }) {
+    const items = listItems.filter(s => s.toLowerCase().indexOf(searchString.toLowerCase()) >= 0);
 
     return (
         <div>
-            <select size = "15" style={{fontSize: "18px", width: "100%"}}>
+            <select size = "15" className="search-list">
                 {items.map(item => <option value={item}>{item}</option>)}
             </select>
         </div>
     );
 }
 
-export default function ListSearch(props) {
-    const { listItems } = props;
+export default function ListSearch({ listItems }) {
     const [ searchString, setSearchString ] = useState("")
 
     return (
@@ -39,5 +31,5 @@ export default function ListSearch(props) {
             <SearchBox setSearchString={setSearchString}/>
             <List listItems={listItems} searchString={searchString} />
         </div>
-    )
+    );
 }
