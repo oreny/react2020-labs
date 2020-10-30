@@ -1,0 +1,109 @@
+.app-div {
+    display: flex;
+}
+
+.app-div-left {
+    width: 30%;
+    height: 100vh;
+    float: left;
+    background-color: #01FDE8;
+}
+
+.app-div-right {
+    width: 70%;
+    height: 100vh;
+    float: right;
+    background-color: #ffffeb;
+}
+
+.search-box {
+    font-size: 24px;
+    margin-left: 5px;
+    width: 70%;
+}
+
+.search-list {
+    font-size: 18px;
+    width: 100%;
+}
+
+.search-label {
+    font-size: 24px;
+}
+
+[class*=“game-box-“] {
+    height: 100%;
+    width: 10%;
+    border-style: groove;
+    border-width: medium;
+    border-color: black;
+    margin: 2px;
+    overflow: auto;
+}
+
+.score-label {
+    font-size: 32px;
+}
+
+.game-box-red {
+    background-color: red;
+}
+
+.game-box-grey {
+    background-color: grey;
+}
+
+.game-box-red, .game-box-grey {
+    height: 100%;
+    width: 10%;
+    border-style: groove;
+    border-width: medium;
+    border-color: black;
+    margin: 2px;
+    overflow: auto;
+}
+
+.game-board {
+    width: 400px;
+    height: 100%;
+    display: flex;
+}
+
+.start-game-button {
+    font-size: 18px;
+    color: green;
+    border-radius: 8px;
+}
+
+.nav {
+    border-bottom: ridge;
+    border-color: lightgray;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.nav-button {
+    font-size: 24px;
+    border-style: none;
+}
+
+.nav-title-lable {
+    font-size: 24px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.auth-page-div {
+    padding: 30px;
+}
+
+.auth-label {
+    font-size: 32px;
+    margin-top: 25px;
+}
+
+.auth-input {
+    font-size: 24px;
+    margin-left: 10px;
+}
