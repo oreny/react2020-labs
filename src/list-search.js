@@ -4,7 +4,7 @@ import "./style.css";
 function SearchBox({ setSearchString }) {
     return (
         <div style={{marginBottom: "10px"}}>
-            <label style={{fontSize: "24px"}}>Search:
+            <label className="search-label">Search:
                 <input className="search-box" onChange={(e) => setSearchString(e.target.value)}/>
             </label>
         </div>

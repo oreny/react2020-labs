@@ -5,7 +5,7 @@ function ScoreBoard({ score }) {
 
     return (
         <div style={{marginBottom: "10px", marginTop: "10px"}}>
-            <label style={{fontSize: "32px"}}>Score: {score}</label>
+            <label className="score-label">Score: {score}</label>
         </div>
     )
 }
