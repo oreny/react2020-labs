@@ -22,9 +22,9 @@ export default function SortedTable({tableData}) {
 
     function onSortClick(columnIndex) {
         const asc = columnIndex !== sortColumn || !ascending;
-        setSortColumn(() => columnIndex);
+        setSortColumn(columnIndex);
         setTableContent(sortTable(tableContent, columnIndex, asc));
-        setAscending(() => asc);
+        setAscending(asc);
     }
 
     function buttonTitle(column) {
@@ -36,7 +36,7 @@ export default function SortedTable({tableData}) {
             <tbody>
             <tr key={-1}>
                 {tableData[0].map((header, i) => <th key={header}>{header}
-                <button className="sort-button"   onClick={() => onSortClick(i)}>{buttonTitle(i)}</button>
+                <button className="sort-button"   onClick={onSortClick(i)}>{buttonTitle(i)}</button>
                 </th>)}
             </tr>
             {tableContent.map(row => <tr key={row[0]}>{row.slice(1).map(cell => <td>{cell}</td>)}</tr>)}
