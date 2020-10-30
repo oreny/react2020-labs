@@ -1,0 +1,36 @@
+
+.square {
+    height: 50px;
+    width: 40px;
+    overflow: auto;
+    margin-right: 10px;
+    background-color: midnightblue;
+    float: left;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    font-size: 32px;
+    border: black;
+    border-style: outset;
+    border-radius: 10px;
+}
+
+div:focus{
+    background-color: blueviolet;
+    outline: none;
+}
+
+label {
+    font-size: 24px;
+    margin: 10px;
+}
+
+input {
+    font-size: 24px;
+    margin: 10px;
+}
+
+button {
+    font-size: 24px;
+    font-weight: bold;
+}
