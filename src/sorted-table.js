@@ -2,25 +2,22 @@ import React from "react";
 import {useState} from "react";
 import "./sorted-table.css";
 
+const compare = (a, b, asc) => (asc ? 1 : -1) *
+    (typeof a === "number" ? a - b
+        : typeof a === "string" ? (a.toLowerCase() < b.toLowerCase() ? -1 : a.toLowerCase() > b.toLowerCase() ? 1 : 0)
+        : typeof a === "boolean" ? (a && !b ? 1 : a === b ? 0 : -1)
+            : 0);
+
 export default function SortedTable({tableData}) {
-
-    const tableContentWithKey = () => tableData.slice(1).map((row, i) => [i].concat(row));
-    const compare = (a,b) =>
-        typeof a === "number" ? a - b
-            : typeof a === "string" ? (a.toLowerCase() < b.toLowerCase() ? -1 : a.toLowerCase() > b.toLowerCase() ? 1 : 0)
-            : typeof a === "boolean" ? (a && !b ? 1 : a === b ? 0 : -1)
-            : 0;
-
+    const tableContentWithKey = () => tableData.slice(1).map((row, key) => [key].concat(row));
     const [sortColumn, setSortColumn] = useState(0);
     const [tableContent, setTableContent] = useState(tableContentWithKey());
     const [ascending, setAscending] = useState(true);
 
-
-
     function sortTable(tbl, column, asc) {
-        return tbl.map((row, i) => [row[column], i])
-            .sort((a, b) => compare(a[0], b[0]) * (asc ? 1 : -1))
-            .map(a => tbl[a[1]]);
+        return tbl.map((row, i) => ({ cellData: row[column], rowIndex: i }))
+            .sort((rowDataKeyPair1, rowDataKeyPair2) => compare(rowDataKeyPair1.cellData, rowDataKeyPair2.cellData, asc))
+            .map(rowDataKeyPair => tbl[rowDataKeyPair.rowIndex]);
     }
 
     function onSortClick(columnIndex) {
