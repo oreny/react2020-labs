@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SortedTable from "./sorted-table";
 
 const App = () => {
+  const data = [
+      ['id', 'Name', 'Country', 'Email'],
+      [0, 'dan', 'Israel', 'dan@gmail.com'],
+      [1, 'dana', 'Israel', 'dana@gmail.com'],
+      [2, 'anna', 'Israel', 'anna@gmail.com'],
+      [3, 'zina', 'UK', 'zina@gmail.com'],
+  ];
 
   return (
     <div>
-      <h1>Hello World</h1>
+      <SortedTable tableData={data}/>
     </div>
-  )
-};
+  );
+}
 
 
 // main.js

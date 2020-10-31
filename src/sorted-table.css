@@ -1,0 +1,41 @@
+
+
+table {
+    border-collapse:collapse;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: aqua;
+}
+
+tr:hover {
+    background-color: grey;
+    color: white;
+}
+
+
+table.reference:nth-of-type(2) tr:nth-child(2)
+{
+    background-color:blue;
+}
+
+.sort-button {
+    font-size: 12px;
+    transform: rotate(90deg);
+    border:none;
+    padding: 0px 3px 0px 3px;
+    background: lightblue;
+}
+
+th {
+    font-size:18px;
+    font-weight: bold;
+    color: white;
+    background-color: midnightblue;
+    width: 100px;
+    text-align: left;
+    padding: 10px;
+    white-space: nowrap;
+}
+
