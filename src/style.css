@@ -1,0 +1,22 @@
+a {
+    background-color: aquamarine;
+    color: darkblue;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+a:active {
+    background-color: black;
+}
+
+a:visited {
+    background-color: #ccc;
+}
