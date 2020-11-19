@@ -21,37 +21,9 @@ module.exports = {
           }
         }
       },
-
       {
-        test: /\.css$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader', options: { importLoaders: 2, modules: true }
-          }
-        ],
-        include: /\.module\.scss$/
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          'css-loader',
-          'sass-loader',
-        ],
-        exclude: /\.module\.css$/
-      },
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          'css-loader',
-        ],
-        exclude: /\.module\.css$/
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
